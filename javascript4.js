@@ -5,12 +5,14 @@ function displayTasks() {
   console.log("現在の持っているタスクの一覧\n");
   console.log("==========================\n");
 
-  let cat = ["[内容]机を片付ける、", "[内容]牛乳を買う、", "[内容]散歩する、"];
+  let actions = [
+    { content: "[内容]机を片付ける、", genre: "[ジャンル]掃除" },
+    { content: "[内容]牛乳を買う、", genre: "[ジャンル]買い物" },
+    { content: "[内容]散歩する、", genre: "[ジャンル]運動" },
+  ];
 
-  let genre = ["[ジャンル]掃除", "[ジャンル]買い物", "[ジャンル]運動"];
-
-  for (let i = 0; i < cat.length; i++) {
-    console.log(cat[i] + genre[i] + "\n");
+  for (let i = 0; i < actions.length; i++) {
+    console.log(actions[i].content + actions[i].genre + "\n");
   }
 
   const userinput = prompt(
@@ -22,15 +24,17 @@ function displayTasks() {
 
   if (userinput2 !== null && userinput2 !== "") {
     if (userinput3 !== null && userinput3 !== "") {
-      cat.push("[内容]" + userinput2 + "、");
-      genre.push("[ジャンル]" + userinput3);
+      actions.push({
+        content: "[内容]" + userinput2 + "、",
+        genre: "[ジャンル]" + userinput3,
+      });
 
       const userinput4 = prompt("新しいタスクを追加致しました");
       console.log("==========================\n");
       console.log("現在の持っているタスクの一覧\n");
       console.log("==========================\n");
-      for (let i = 0; i < cat.length; i++) {
-        console.log(cat[i] + genre[i] + "\n");
+      for (let i = 0; i < actions.length; i++) {
+        console.log(actions[i].content + actions[i].genre + "\n");
       }
     }
   }
