@@ -5,15 +5,16 @@ function displayTasks() {
   console.log("現在の持っているタスクの一覧\n");
   console.log("==========================\n");
 
-  let actions = [
+  const actions = [
     { content: "[内容]机を片付ける、", genre: "[ジャンル]掃除" },
     { content: "[内容]牛乳を買う、", genre: "[ジャンル]買い物" },
     { content: "[内容]散歩する、", genre: "[ジャンル]運動" },
   ];
 
-  for (let i = 0; i < actions.length; i++) {
-    console.log(actions[i].content + actions[i].genre + "\n");
-  }
+  //配列のループでforを使うことはないのでforEachを使うこと
+  actions.forEach(function (value) {
+    console.log(value.content + value.genre + "\n");
+  });
 
   const userinput = prompt(
     "「確認、追加、削除、終了」の４つのいずれかを入力してください"
@@ -33,9 +34,10 @@ function displayTasks() {
       console.log("==========================\n");
       console.log("現在の持っているタスクの一覧\n");
       console.log("==========================\n");
-      for (let i = 0; i < actions.length; i++) {
-        console.log(actions[i].content + actions[i].genre + "\n");
-      }
+
+      actions.forEach(function (value) {
+        console.log(value.content + value.genre + "\n");
+      });
     }
   }
 }
